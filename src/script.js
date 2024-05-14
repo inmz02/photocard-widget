@@ -7,21 +7,26 @@ const closeBtn = document.getElementById("closeBtn");
 const creditsBtn = document.getElementById("creditsBtn");
 const photosBtn = document.getElementById("photosBtn");
 const creditsSection = document.getElementById("creditsSection");
+const creditsCloseBtn = document.getElementById("creditsCloseBtn");
 
 // --------------- //
 
-// cardContainer.addEventListener("mouseenter", function () {
-//   // Show the menuNav element
-//   menuNav.style.display = "flex";
-//   photoControls.style.display = "flex";
-// });
+// Hover ON
+cardContainer.addEventListener("mouseenter", function () {
+  if (creditsSection.style.display === "block") {
+    menuNav.style.display = "none";
+    photoControls.style.display = "none";
+  } else {
+    menuNav.style.display = "flex";
+    photoControls.style.display = "flex";
+  }
+});
 
-// // Add event listener for mouseleave event on cardContainer
-// cardContainer.addEventListener("mouseleave", function () {
-//   // Hide the menuNav element
-//   menuNav.style.display = "none";
-//   photoControls.style.display = "none";
-// });
+//  Hover OFF
+cardContainer.addEventListener("mouseleave", function () {
+  menuNav.style.display = "none";
+  photoControls.style.display = "none";
+});
 
 closedMenu.addEventListener("click", function () {
   openedMenu.style.display = "flex";
@@ -35,7 +40,13 @@ closeBtn.addEventListener("click", function () {
 
 creditsBtn.addEventListener("click", function () {
   openedMenu.style.display = "none";
-    photoControls.style.display = "none";
-    
-    creditsSection.style.display = "block";
+  photoControls.style.display = "none";
+  creditsSection.style.display = "block";
+});
+
+creditsCloseBtn.addEventListener("click", function () {
+  creditsSection.style.display = "none";
+  menuNav.style.display = "flex";
+  closedMenu.style.display = "flex";
+  photoControls.style.display = "flex";
 });

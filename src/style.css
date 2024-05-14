@@ -84,7 +84,7 @@ body #cardContainer #photoSetsSection {
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
   display: none;
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: 18px;
   -webkit-border-radius: 18px;
   -moz-border-radius: 18px;
@@ -129,7 +129,7 @@ body #cardContainer #photoSetsSection .bottomSec {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   padding-top: 10px;
   text-align: center;
 }
