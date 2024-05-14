@@ -5,11 +5,18 @@
   box-sizing: border-box;
 }
 
-.card_container {
-  width: 250px;
-  height: 386px;
-  background-color: pink;
-}
-.card_container i {
+body {
   color: #545454;
+}
+body #cardContainer {
+  width: 269px;
+  height: 415px;
+  background-color: pink;
+  background-image: url("test.png");
+  background-size: cover;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
 }/*# sourceMappingURL=style.css.map */

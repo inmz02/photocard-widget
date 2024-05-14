@@ -1,15 +1,24 @@
 @import url("https://css.gg/css");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.card_container {
-    width: 250px;
-    height: 386px;
+body {
+  color: #545454;
+
+  #cardContainer {
+    width: 269px;
+    height: 415px;
     background-color: pink;
-    i {
-        color: #545454;
-    }
+    background-image: url("test.png");
+    background-size: cover;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+  }
+  
 }
