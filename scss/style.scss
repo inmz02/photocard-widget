@@ -13,7 +13,7 @@ body {
   #cardContainer {
     width: 269px;
     height: 415px;
-    background-color: pink;
+    background-color: rgb(255, 255, 255);
     background-image: url("test.png");
     background-size: cover;
 
@@ -144,13 +144,12 @@ body {
       -ms-border-radius: 18px;
       -o-border-radius: 18px;
     }
-
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-  }
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
 
   #creditsSection {
     #hearts {

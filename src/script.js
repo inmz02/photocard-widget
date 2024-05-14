@@ -11,6 +11,11 @@ const creditsCloseBtn = document.getElementById("creditsCloseBtn");
 
 // --------------- //
 
+document.addEventListener("contextmenu", function (event) {
+  // Prevent the default context menu from appearing
+  event.preventDefault();
+});
+
 // Hover ON
 cardContainer.addEventListener("mouseenter", function () {
   if (creditsSection.style.display === "block") {
