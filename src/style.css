@@ -1,4 +1,5 @@
 @import url("https://css.gg/css");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +8,12 @@
 
 body {
   color: #545454;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
 }
 body #cardContainer {
   width: 269px;
@@ -14,9 +21,123 @@ body #cardContainer {
   background-color: pink;
   background-image: url("test.png");
   background-size: cover;
-  border-radius: 25px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  -o-border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1rem;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+body #cardContainer #photoControls div,
+body #cardContainer #menuNav div {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+body #cardContainer #photoControls div:hover,
+body #cardContainer #menuNav div:hover {
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.35);
+  background-color: white;
+  cursor: pointer;
+}
+body #cardContainer #menuNav {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+body #cardContainer #menuNav .fa-xmark {
+  font-size: 18px;
+  padding-top: 2px;
+}
+body #cardContainer #menuNav #openedMenu {
+  display: none;
+  gap: 10px;
+  background: transparent;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body #cardContainer #photoControls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+body #cardContainer #creditsSection,
+body #cardContainer #photoSetsSection {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  display: none;
+  padding: 1.5rem;
+  border-radius: 18px;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+}
+body #cardContainer #creditsSection .topSec,
+body #cardContainer #photoSetsSection .topSec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+body #cardContainer #creditsSection .topSec div,
+body #cardContainer #photoSetsSection .topSec div {
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 25px;
+  height: 25px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+body #cardContainer #creditsSection .topSec div:hover,
+body #cardContainer #photoSetsSection .topSec div:hover {
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.35);
+  background-color: white;
+  cursor: pointer;
+}
+body #cardContainer #creditsSection .bottomSec,
+body #cardContainer #photoSetsSection .bottomSec {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+  text-align: center;
+}
+body #creditsSection #hearts {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+body #creditsSection #hearts img {
+  width: 20px;
 }/*# sourceMappingURL=style.css.map */
