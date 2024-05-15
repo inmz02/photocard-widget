@@ -245,10 +245,9 @@ photosContainers.forEach(function (container) {
   });
 });
 
-// document.addEventListener("contextmenu", function (event) {
-//   // Prevent the default context menu from appearing
-//   event.preventDefault();
-// });
+document.addEventListener("contextmenu", function (event) {
+  event.preventDefault();
+});
 
 // 💡 Initialization v2
 const storedData = getChosenSetAndIndex();
