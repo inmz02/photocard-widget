@@ -16,6 +16,7 @@ const photosContainers = photoSetsSection.querySelectorAll(
 );
 const photoSetCloseBtn = document.getElementById("photoSetCloseBtn");
 let chosenSet = 0;
+let numOfPics = 0;
 
 const langBtn = document.getElementById("langBtn");
 let mode = langBtn.dataset.lang;
@@ -95,32 +96,48 @@ creditsCloseBtns.forEach(function (x) {
 });
 
 // -------------------------------- //
-
 // >> Choosing a photocard set 💡
 photosContainers.forEach(function (container) {
+  container.classList.remove("selected");
   container.addEventListener("click", function () {
-    let setName = container.dataset.setName;
+    photosContainers.forEach(function (c) {
+      c.classList.remove("selected");
+    });
+    container.classList.add("selected");
+
+    let setName = container.dataset.setname;
 
     switch (setName) {
       case "set1":
         chosenSet = 1;
+        numOfPics = 10;
         break;
       case "set2":
         chosenSet = 2;
+        numOfPics = 5;
         break;
       case "set3":
         chosenSet = 3;
+        numOfPics = 5;
         break;
       case "set4":
         chosenSet = 4;
+        numOfPics = 10;
         break;
       case "set5":
         chosenSet = 5;
+        numOfPics = 5;
         break;
       case "set6":
         chosenSet = 6;
+        numOfPics = 5;
         break;
     }
+
+    cardContainer.dataset.currentSet = `${chosenSet}`;
+
+    console.log(cardContainer.dataset.currentSet);
+
   });
 });
 
@@ -167,21 +184,20 @@ setTimeout(() => {
 
 // -------------------------------- //
 
-// >> Image Sorting 🖼️ 
-let numbOfPics = 10;
+// >> Image Sorting 🖼️
 let currentImageIndex = 1;
 
 prevButton.addEventListener("click", () => {
   currentImageIndex--;
   if (currentImageIndex < 1) {
-    currentImageIndex = numbOfPics;
+    currentImageIndex = numOfPics;
   }
   changeBackgroundImage();
 });
 
 nextButton.addEventListener("click", () => {
   currentImageIndex++;
-  if (currentImageIndex > numbOfPics) {
+  if (currentImageIndex > numOfPics) {
     currentImageIndex = 1;
   }
   changeBackgroundImage();
