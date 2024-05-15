@@ -64,6 +64,9 @@ body #cardContainer #menuNav .fa-xmark {
   font-size: 18px;
   padding-top: 2px;
 }
+body #cardContainer #menuNav #langBtn {
+  font-weight: bold;
+}
 body #cardContainer #menuNav #openedMenu {
   display: none;
   gap: 10px;
@@ -140,4 +143,7 @@ body #creditsSection #hearts {
 }
 body #creditsSection #hearts img {
   width: 20px;
+}
+body #creditsSection #koreanCredits {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

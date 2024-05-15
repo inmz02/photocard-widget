@@ -7,14 +7,16 @@ const closeBtn = document.getElementById("closeBtn");
 const creditsBtn = document.getElementById("creditsBtn");
 const photosBtn = document.getElementById("photosBtn");
 const creditsSection = document.getElementById("creditsSection");
-const creditsCloseBtn = document.getElementById("creditsCloseBtn");
+const creditsCloseBtns = document.querySelectorAll(".creditsCloseBtn");
+const langBtn = document.getElementById("langBtn");
+let mode = langBtn.dataset.lang;
 
 // --------------- //
 
-document.addEventListener("contextmenu", function (event) {
-  // Prevent the default context menu from appearing
-  event.preventDefault();
-});
+// document.addEventListener("contextmenu", function (event) {
+//   // Prevent the default context menu from appearing
+//   event.preventDefault();
+// });
 
 // Hover ON
 cardContainer.addEventListener("mouseenter", function () {
@@ -25,6 +27,8 @@ cardContainer.addEventListener("mouseenter", function () {
     menuNav.style.display = "flex";
     photoControls.style.display = "flex";
   }
+  openedMenu.style.display = "none";
+  closedMenu.style.display = "flex";
 });
 
 //  Hover OFF
@@ -49,9 +53,36 @@ creditsBtn.addEventListener("click", function () {
   creditsSection.style.display = "block";
 });
 
-creditsCloseBtn.addEventListener("click", function () {
-  creditsSection.style.display = "none";
-  menuNav.style.display = "flex";
-  closedMenu.style.display = "flex";
-  photoControls.style.display = "flex";
+creditsCloseBtns.forEach(function (x) {
+  x.addEventListener("click", function () {
+    creditsSection.style.display = "none";
+    menuNav.style.display = "flex";
+    closedMenu.style.display = "flex";
+    photoControls.style.display = "flex";
+  });
 });
+
+
+
+langBtn.addEventListener("click", function () {
+  let p = langBtn.querySelector("p");
+
+  if (mode === "kr") {
+    p.textContent = "EN";
+    langBtn.dataset.lang = "en";
+    creditsSection.querySelector("#koreanCredits").style.display = "none";
+    creditsSection.querySelector("#engCredits").style.display = "block";
+    mode = "EN";
+  } else {
+    p.textContent = "KR";
+    langBtn.dataset.lang = "kr";
+    creditsSection.querySelector("#koreanCredits").style.display = "block";
+    creditsSection.querySelector("#engCredits").style.display = "none";
+    mode = "kr";
+  }
+});
+
+
+setTimeout(() => {
+  mode = langBtn.dataset.lang;
+}, 1000);

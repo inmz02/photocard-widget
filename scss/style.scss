@@ -64,6 +64,10 @@ body {
         padding-top: 2px;
       }
 
+      #langBtn {
+        font-weight: bold;
+      }
+
       #openedMenu {
         display: none;
         gap: 10px;
@@ -159,6 +163,10 @@ body {
       img {
         width: 20px;
       }
+    }
+
+    #koreanCredits {
+        display: none;
     }
   }
 
