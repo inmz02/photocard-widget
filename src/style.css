@@ -146,4 +146,7 @@ body #creditsSection #hearts img {
 }
 body #creditsSection #koreanCredits {
   display: none;
+}
+body #photoSetsSection #korH1 {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
