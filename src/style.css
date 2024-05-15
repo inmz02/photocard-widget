@@ -10,6 +10,8 @@
 body {
   color: #545454;
   font-family: "IBM Plex Sans KR", sans-serif;
+  display: flex;
+  justify-content: center;
   border-radius: 25px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
@@ -20,6 +22,7 @@ body #cardContainer {
   width: 269px;
   height: 415px;
   background-color: rgb(255, 255, 255);
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.35);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -76,6 +79,17 @@ body #cardContainer #menuNav #openedMenu {
   width: -moz-fit-content;
   width: fit-content;
   flex-direction: row-reverse;
+  position: relative;
+}
+body #cardContainer #menuNav #openedMenu .top, body #cardContainer #menuNav #openedMenu .right {
+  display: flex;
+  gap: 10px;
+}
+body #cardContainer #menuNav #openedMenu .top {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  flex-direction: column;
 }
 body #cardContainer #photoControls {
   width: 100%;
@@ -158,9 +172,7 @@ body #cardContainer #creditsSection .bottomSec,
 body #cardContainer #photoSetsSection .bottomSec,
 body #cardContainer #infoSection .bottomSec {
   display: flex;
-  justify-content: center;
   height: 300px;
-  align-items: center;
   flex-direction: column;
   gap: 15px;
   padding-top: 10px;
@@ -169,6 +181,9 @@ body #cardContainer #infoSection .bottomSec {
 body #creditsSection #engCredits p,
 body #creditsSection #koreanCredits p {
   font-size: 0.9rem;
+}
+body #creditsSection .bottomSec {
+  padding-top: 20px;
 }
 body #creditsSection #koreanCredits {
   display: none;
