@@ -131,6 +131,28 @@ creditsCloseBtns.forEach(function (x) {
   });
 });
 
+photosContainers.forEach(function (container) {
+  container.addEventListener("click", function () {
+    photosContainers.forEach(function (c) {
+      c.classList.remove("selected");
+    });
+    container.classList.add("selected");
+
+    setTimeout(() => {
+      setName = container.dataset.setname;
+    }, 1000);
+
+    saveChosenSetAndIndex();
+
+    setChosenSetAndNumOfPics(setName);
+
+    cardContainer.dataset.currentset = `${chosenSet}`;
+    currentSet = `${chosenSet}`;
+    currentImageIndex = 1;
+    changeBackgroundImage();
+  });
+});
+
 photoSetCloseBtn.addEventListener("click", function () {
   photoSetsSection.style.display = "none";
   menuNav.style.display = "flex";
@@ -159,26 +181,6 @@ langBtn.addEventListener("click", function () {
   engCredits.style.display = mode === "kr" ? "none" : "block";
   korH1.style.display = mode === "kr" ? "block" : "none";
   engH1.style.display = mode === "kr" ? "none" : "block";
-});
-
-photosContainers.forEach(function (container) {
-  container.addEventListener("click", function () {
-    photosContainers.forEach(function (c) {
-      c.classList.remove("selected");
-    });
-    container.classList.add("selected");
-
-    setName = container.dataset.setname;
-
-    saveChosenSetAndIndex();
-
-    setChosenSetAndNumOfPics(setName);
-
-    cardContainer.dataset.currentset = `${chosenSet}`;
-    currentSet = `${chosenSet}`;
-    currentImageIndex = 1;
-    changeBackgroundImage();
-  });
 });
 
 // document.addEventListener("contextmenu", function (event) {
@@ -212,6 +214,7 @@ if (storedData.chosenSet && storedData.currentImageIndex) {
 
 // 🖼️ Image Sorting
 prevButton.addEventListener("click", () => {
+  setChosenSetAndNumOfPics(setName);
   currentImageIndex--;
   if (currentImageIndex < 1) {
     currentImageIndex = numOfPics;
@@ -221,6 +224,8 @@ prevButton.addEventListener("click", () => {
 });
 
 nextButton.addEventListener("click", () => {
+  setChosenSetAndNumOfPics(setName);
+  console.log(setName);
   currentImageIndex++;
   if (currentImageIndex > numOfPics) {
     currentImageIndex = 1;
@@ -231,5 +236,5 @@ nextButton.addEventListener("click", () => {
 
 setTimeout(() => {
   mode = langBtn.dataset.lang;
-  // cardContainer.dataset.currentset = `${chosenSet}`;
+  cardContainer.dataset.currentset = `${chosenSet}`;
 }, 1000);

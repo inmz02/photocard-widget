@@ -57,9 +57,8 @@ body #cardContainer #menuNav div:hover {
 body #cardContainer #menuNav {
   position: absolute;
   bottom: 1rem;
-  right: 1rem;
+  left: 1rem;
   display: flex;
-  flex-direction: row-reverse;
 }
 body #cardContainer #menuNav .fa-xmark {
   font-size: 18px;
@@ -74,6 +73,7 @@ body #cardContainer #menuNav #openedMenu {
   background: transparent;
   width: -moz-fit-content;
   width: fit-content;
+  flex-direction: row-reverse;
 }
 body #cardContainer #photoControls {
   width: 100%;
