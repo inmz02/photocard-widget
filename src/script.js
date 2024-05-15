@@ -89,6 +89,26 @@ function setChosenSetAndNumOfPics(setName) {
       chosenSet = 6;
       numOfPics = 5;
       break;
+    case "set7":
+      chosenSet = 7;
+      numOfPics = 2;
+      break;
+    case "set7":
+      chosenSet = 7;
+      numOfPics = 2;
+      break;
+    case "set8":
+      chosenSet = 8;
+      numOfPics = 5;
+      break;
+    case "set9":
+      chosenSet = 9;
+      numOfPics = 6;
+      break;
+    case "set10":
+      chosenSet = 10;
+      numOfPics = 6;
+      break;
   }
 }
 
