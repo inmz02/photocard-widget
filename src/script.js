@@ -6,6 +6,10 @@ const closedMenu = document.getElementById("closedMenu");
 const photoControls = document.getElementById("photoControls");
 const closeBtn = document.getElementById("closeBtn");
 const viewPhotoSetBtn = document.getElementById("photosBtn");
+const infoBtn = document.getElementById("infoBtn");
+const infoSection = document.getElementById("infoSection");
+const infoCloseBtns = document.querySelectorAll(".infoCloseBtn");
+const infoLinks = infoSection.querySelectorAll(".setLink");
 const creditsBtn = document.getElementById("creditsBtn");
 const creditsSection = document.getElementById("creditsSection");
 const creditsCloseBtns = document.querySelectorAll(".creditsCloseBtn");
@@ -25,6 +29,7 @@ let currentImageIndex = 1;
 let mode = langBtn.dataset.lang;
 let currentSet = cardContainer.dataset.currentset;
 let setName = "";
+let currentSetLink = "";
 
 // 🧁 Functions
 function showMenuAndPhotoControls() {
@@ -50,12 +55,14 @@ function hideOpenedMenu() {
 function saveChosenSetAndIndex() {
   localStorage.setItem("chosenSet", chosenSet);
   localStorage.setItem("currentImageIndex", currentImageIndex);
+  localStorage.setItem("link", currentSetLink);
 }
 
 function getChosenSetAndIndex() {
   return {
     chosenSet: parseInt(localStorage.getItem("chosenSet")),
     currentImageIndex: parseInt(localStorage.getItem("currentImageIndex")),
+    currentSetLink: (localStorage.getItem("link")),
   };
 }
 
@@ -68,46 +75,52 @@ function setChosenSetAndNumOfPics(setName) {
     case "set1":
       chosenSet = 1;
       numOfPics = 10;
+      currentSetLink = "https://plave-plli486.postype.com/post/16756500";
       break;
     case "set2":
       chosenSet = 2;
       numOfPics = 5;
+      currentSetLink = "https://plave-plli486.postype.com/post/16731542";
       break;
     case "set3":
       chosenSet = 3;
       numOfPics = 5;
+      currentSetLink = "https://plave-plli486.postype.com/post/16716130";
       break;
     case "set4":
       chosenSet = 4;
       numOfPics = 10;
+      currentSetLink = "https://plave-plli486.postype.com/post/16699176";
       break;
     case "set5":
       chosenSet = 5;
       numOfPics = 5;
+      currentSetLink = "https://plave-plli486.postype.com/post/16688453";
       break;
     case "set6":
       chosenSet = 6;
       numOfPics = 5;
+      currentSetLink = "https://plave-plli486.postype.com/post/16660634";
       break;
     case "set7":
       chosenSet = 7;
       numOfPics = 2;
-      break;
-    case "set7":
-      chosenSet = 7;
-      numOfPics = 2;
+      currentSetLink = "https://plave-plli486.postype.com/post/16802996";
       break;
     case "set8":
       chosenSet = 8;
       numOfPics = 5;
+      currentSetLink = "https://plave-plli486.postype.com/post/16781130";
       break;
     case "set9":
       chosenSet = 9;
       numOfPics = 6;
+      currentSetLink = "https://plave-plli486.postype.com/post/16600323";
       break;
     case "set10":
       chosenSet = 10;
       numOfPics = 6;
+      currentSetLink = "https://plave-plli486.postype.com/post/16520237";
       break;
   }
 }
@@ -116,7 +129,8 @@ function setChosenSetAndNumOfPics(setName) {
 cardContainer.addEventListener("mouseenter", function () {
   if (
     creditsSection.style.display === "block" ||
-    photoSetsSection.style.display === "block"
+    photoSetsSection.style.display === "block" ||
+    infoSection.style.display === "block"
   ) {
     hideMenuAndPhotoControls();
   } else {
@@ -151,6 +165,20 @@ creditsCloseBtns.forEach(function (x) {
   });
 });
 
+infoBtn.addEventListener("click", function () {
+  hideOpenedMenu();
+  hideMenuAndPhotoControls();
+  infoSection.style.display = "block";
+});
+
+infoCloseBtns.forEach(function (x) {
+  x.addEventListener("click", function () {
+    infoSection.style.display = "none";
+    showMenuAndPhotoControls();
+    showOpenedMenu();
+  });
+});
+
 photoSetCloseBtn.addEventListener("click", function () {
   photoSetsSection.style.display = "none";
   menuNav.style.display = "flex";
@@ -168,6 +196,10 @@ langBtn.addEventListener("click", function () {
   let p = langBtn.querySelector("p");
   let koreanCredits = creditsSection.querySelector("#koreanCredits");
   let engCredits = creditsSection.querySelector("#engCredits");
+
+  let koreanInfo = infoSection.querySelector("#koreanInfo");
+  let engInfo = infoSection.querySelector("#engInfo");
+  
   let korH1 = photoSetsSection.querySelector("#korH1");
   let engH1 = photoSetsSection.querySelector("#engH1");
 
@@ -175,6 +207,8 @@ langBtn.addEventListener("click", function () {
   p.textContent = mode === "kr" ? "KR" : "EN";
   langBtn.dataset.lang = mode;
 
+  koreanInfo.style.display = mode === "kr" ? "block" : "none";
+  engInfo.style.display = mode === "kr" ? "none" : "block";
   koreanCredits.style.display = mode === "kr" ? "block" : "none";
   engCredits.style.display = mode === "kr" ? "none" : "block";
   korH1.style.display = mode === "kr" ? "block" : "none";
@@ -190,14 +224,24 @@ photosContainers.forEach(function (container) {
 
     setName = container.dataset.setname;
 
-    saveChosenSetAndIndex();
-
     setChosenSetAndNumOfPics(setName);
+
+    saveChosenSetAndIndex();
 
     cardContainer.dataset.currentset = `${chosenSet}`;
     currentSet = `${chosenSet}`;
     currentImageIndex = 1;
+
+     infoLinks.forEach(function (x) {
+       x.setAttribute("href", currentSetLink);
+     });
+
     changeBackgroundImage();
+
+    photoSetsSection.style.display = "none";
+    menuNav.style.display = "flex";
+    closedMenu.style.display = "flex";
+    photoControls.style.display = "flex";
   });
 });
 
@@ -209,10 +253,11 @@ photosContainers.forEach(function (container) {
 // 💡 Initialization v2
 const storedData = getChosenSetAndIndex();
 
-if (storedData.chosenSet && storedData.currentImageIndex) {
+if (storedData.chosenSet && storedData.currentImageIndex && storedData.currentSetLink) {
   chosenSet = storedData.chosenSet;
   currentSet = `${chosenSet}`;
   currentImageIndex = storedData.currentImageIndex;
+  currentSetLink = storedData.currentSetLink;
   changeBackgroundImage();
   const selectedContainer = document.querySelector(
     `[data-setname="set${chosenSet}"]`
@@ -225,6 +270,10 @@ if (storedData.chosenSet && storedData.currentImageIndex) {
   numOfPics = 10;
   currentImageIndex = 1;
   currentSet = `${chosenSet}`;
+  currentSetLink = "https://plave-plli486.postype.com/post/16756500";
+  infoLinks.forEach(function (x) {
+    x.setAttribute("href", currentSetLink);
+  });
   changeBackgroundImage();
   const selectedContainer = document.querySelector("[data-setname='set1']");
   selectedContainer.classList.add("selected");

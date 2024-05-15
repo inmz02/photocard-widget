@@ -20,7 +20,6 @@ body #cardContainer {
   width: 269px;
   height: 415px;
   background-color: rgb(255, 255, 255);
-  background-image: url("test.png");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -32,6 +31,9 @@ body #cardContainer {
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
+}
+body #cardContainer #infoSection #koreanInfo {
+  display: none;
 }
 body #cardContainer #photoControls div,
 body #cardContainer #menuNav div {
@@ -81,7 +83,8 @@ body #cardContainer #photoControls {
   justify-content: space-between;
 }
 body #cardContainer #creditsSection,
-body #cardContainer #photoSetsSection {
+body #cardContainer #photoSetsSection,
+body #cardContainer #infoSection {
   height: 100%;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.6);
@@ -95,8 +98,29 @@ body #cardContainer #photoSetsSection {
   -ms-border-radius: 18px;
   -o-border-radius: 18px;
 }
+body #cardContainer #creditsSection a,
+body #cardContainer #photoSetsSection a,
+body #cardContainer #infoSection a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #545454;
+  padding: 2px 0;
+  border-bottom: 2px dotted #545454;
+  transition: 250ms;
+  -webkit-transition: 250ms;
+  -moz-transition: 250ms;
+  -ms-transition: 250ms;
+  -o-transition: 250ms;
+}
+body #cardContainer #creditsSection a:hover,
+body #cardContainer #photoSetsSection a:hover,
+body #cardContainer #infoSection a:hover {
+  background-color: #545454;
+  color: aliceblue;
+}
 body #cardContainer #creditsSection .topSec,
-body #cardContainer #photoSetsSection .topSec {
+body #cardContainer #photoSetsSection .topSec,
+body #cardContainer #infoSection .topSec {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -107,7 +131,8 @@ body #cardContainer #photoSetsSection .topSec {
   -o-border-radius: 100%;
 }
 body #cardContainer #creditsSection .topSec div,
-body #cardContainer #photoSetsSection .topSec div {
+body #cardContainer #photoSetsSection .topSec div,
+body #cardContainer #infoSection .topSec div {
   background-color: rgba(255, 255, 255, 0.75);
   width: 25px;
   height: 25px;
@@ -123,27 +148,23 @@ body #cardContainer #photoSetsSection .topSec div {
   -o-border-radius: 100%;
 }
 body #cardContainer #creditsSection .topSec div:hover,
-body #cardContainer #photoSetsSection .topSec div:hover {
+body #cardContainer #photoSetsSection .topSec div:hover,
+body #cardContainer #infoSection .topSec div:hover {
   box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.35);
   background-color: white;
   cursor: pointer;
 }
 body #cardContainer #creditsSection .bottomSec,
-body #cardContainer #photoSetsSection .bottomSec {
+body #cardContainer #photoSetsSection .bottomSec,
+body #cardContainer #infoSection .bottomSec {
   display: flex;
   justify-content: center;
+  height: 300px;
+  align-items: center;
   flex-direction: column;
   gap: 15px;
   padding-top: 10px;
   text-align: center;
-}
-body #creditsSection #hearts {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-}
-body #creditsSection #hearts img {
-  width: 20px;
 }
 body #creditsSection #engCredits p,
 body #creditsSection #koreanCredits p {
@@ -275,4 +296,12 @@ body #photoSetsSection #photoSetControls div:hover {
 }
 body #photoSetsSection #korH1 {
   display: none;
+}
+body .hearts {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+body .hearts img {
+  width: 20px;
 }/*# sourceMappingURL=style.css.map */
