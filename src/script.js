@@ -4,14 +4,22 @@ const openedMenu = document.getElementById("openedMenu");
 const closedMenu = document.getElementById("closedMenu");
 const photoControls = document.getElementById("photoControls");
 const closeBtn = document.getElementById("closeBtn");
+const viewPhotoSetBtn = document.getElementById("photosBtn");
+
 const creditsBtn = document.getElementById("creditsBtn");
-const photosBtn = document.getElementById("photosBtn");
 const creditsSection = document.getElementById("creditsSection");
-const photoSetsSection = document.getElementById("photoSetsSection");
-const photoSetCloseBtn = document.getElementById("photoSetCloseBtn");
 const creditsCloseBtns = document.querySelectorAll(".creditsCloseBtn");
+
+const photoSetsSection = document.getElementById("photoSetsSection");
+const photosContainers = photoSetsSection.querySelectorAll(
+  ".bottomSec .outer_wrapper"
+);
+const photoSetCloseBtn = document.getElementById("photoSetCloseBtn");
+let chosenSet = 0;
+
 const langBtn = document.getElementById("langBtn");
 let mode = langBtn.dataset.lang;
+let currentSet = cardContainer.dataset.currentset;
 const prevButton = document.querySelector(".leftBtn");
 const nextButton = document.querySelector(".rightBtn");
 
@@ -22,50 +30,97 @@ const nextButton = document.querySelector(".rightBtn");
 //   event.preventDefault();
 // });
 
+// Function to show menu and photo controls
+function showMenuAndPhotoControls() {
+  menuNav.style.display = "flex";
+  photoControls.style.display = "flex";
+}
+
+// Function to hide menu and photo controls
+function hideMenuAndPhotoControls() {
+  menuNav.style.display = "none";
+  photoControls.style.display = "none";
+}
+
+// Function to show opened menu and hide closed menu
+function showOpenedMenu() {
+  openedMenu.style.display = "flex";
+  closedMenu.style.display = "none";
+}
+
+// Function to hide opened menu and show closed menu
+function hideOpenedMenu() {
+  openedMenu.style.display = "none";
+  closedMenu.style.display = "flex";
+}
+
 // Hover ON
 cardContainer.addEventListener("mouseenter", function () {
   if (
     creditsSection.style.display === "block" ||
     photoSetsSection.style.display === "block"
   ) {
-    menuNav.style.display = "none";
-    photoControls.style.display = "none";
+    hideMenuAndPhotoControls();
   } else {
-    menuNav.style.display = "flex";
-    photoControls.style.display = "flex";
+    showMenuAndPhotoControls();
   }
-  openedMenu.style.display = "none";
-  closedMenu.style.display = "flex";
+  hideOpenedMenu();
 });
 
 //  Hover OFF
 cardContainer.addEventListener("mouseleave", function () {
-  menuNav.style.display = "none";
-  photoControls.style.display = "none";
+  hideMenuAndPhotoControls();
 });
 
 closedMenu.addEventListener("click", function () {
-  openedMenu.style.display = "flex";
-  closedMenu.style.display = "none";
+  showOpenedMenu();
 });
 
 closeBtn.addEventListener("click", function () {
-  openedMenu.style.display = "none";
-  closedMenu.style.display = "flex";
+  hideOpenedMenu();
 });
 
 creditsBtn.addEventListener("click", function () {
-  openedMenu.style.display = "none";
-  photoControls.style.display = "none";
+  hideOpenedMenu();
+  hideMenuAndPhotoControls();
   creditsSection.style.display = "block";
 });
 
 creditsCloseBtns.forEach(function (x) {
   x.addEventListener("click", function () {
     creditsSection.style.display = "none";
-    menuNav.style.display = "flex";
-    closedMenu.style.display = "flex";
-    photoControls.style.display = "flex";
+    showMenuAndPhotoControls();
+    showOpenedMenu();
+  });
+});
+
+// -------------------------------- //
+
+// >> Choosing a photocard set 💡
+photosContainers.forEach(function (container) {
+  container.addEventListener("click", function () {
+    let setName = container.dataset.setName;
+
+    switch (setName) {
+      case "set1":
+        chosenSet = 1;
+        break;
+      case "set2":
+        chosenSet = 2;
+        break;
+      case "set3":
+        chosenSet = 3;
+        break;
+      case "set4":
+        chosenSet = 4;
+        break;
+      case "set5":
+        chosenSet = 5;
+        break;
+      case "set6":
+        chosenSet = 6;
+        break;
+    }
   });
 });
 
@@ -76,41 +131,43 @@ photoSetCloseBtn.addEventListener("click", function () {
   photoControls.style.display = "flex";
 });
 
-// Photcard Set
-photosBtn.addEventListener("click", function () {
+// Clicking to open the Photocard sets modal 🐼
+viewPhotoSetBtn.addEventListener("click", function () {
   openedMenu.style.display = "none";
   photoControls.style.display = "none";
   photoSetsSection.style.display = "block";
 });
 
+// -------------------------------- //
+
+// >> Choosing the language 🧁
 langBtn.addEventListener("click", function () {
   let p = langBtn.querySelector("p");
+  let koreanCredits = creditsSection.querySelector("#koreanCredits");
+  let engCredits = creditsSection.querySelector("#engCredits");
+  let korH1 = photoSetsSection.querySelector("#korH1");
+  let engH1 = photoSetsSection.querySelector("#engH1");
 
-  if (mode === "kr") {
-    p.textContent = "EN";
-    langBtn.dataset.lang = "en";
-    creditsSection.querySelector("#koreanCredits").style.display = "none";
-    creditsSection.querySelector("#engCredits").style.display = "block";
-    photoSetsSection.querySelector("#korH1").style.display = "none";
-    photoSetsSection.querySelector("#engH1").style.display = "block";
-    mode = "EN";
-  } else {
-    p.textContent = "KR";
-    langBtn.dataset.lang = "kr";
-    creditsSection.querySelector("#koreanCredits").style.display = "block";
-    creditsSection.querySelector("#engCredits").style.display = "none";
-    photoSetsSection.querySelector("#korH1").style.display = "block";
-    photoSetsSection.querySelector("#engH1").style.display = "none";
-    mode = "kr";
-  }
+  mode = mode === "kr" ? "EN" : "kr";
+  p.textContent = mode === "kr" ? "KR" : "EN";
+  langBtn.dataset.lang = mode;
+
+  koreanCredits.style.display = mode === "kr" ? "block" : "none";
+  engCredits.style.display = mode === "kr" ? "none" : "block";
+  korH1.style.display = mode === "kr" ? "block" : "none";
+  engH1.style.display = mode === "kr" ? "none" : "block";
 });
+
+// -------------------------------- //
 
 setTimeout(() => {
   mode = langBtn.dataset.lang;
+  currentSet = cardContainer.dataset.currentset;
 }, 1000);
 
-// 🖼️ Image sorting!
-let folderNum = "1";
+// -------------------------------- //
+
+// >> Image Sorting 🖼️ 
 let numbOfPics = 10;
 let currentImageIndex = 1;
 
@@ -131,9 +188,11 @@ nextButton.addEventListener("click", () => {
 });
 
 function changeBackgroundImage() {
-  cardContainer.style.backgroundImage = `url('src/images/${folderNum}/${currentImageIndex}.png')`;
+  cardContainer.style.backgroundImage = `url('src/images/${currentSet}/${currentImageIndex}.png')`;
 }
 
-console.log(`url('images/${folderNum}/${currentImageIndex}.png')`);
+console.log(`url('images/${currentSet}/${currentImageIndex}.png')`);
 
 changeBackgroundImage();
+
+// -------------------------------- //

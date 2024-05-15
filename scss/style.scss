@@ -141,7 +141,6 @@ body {
         text-align: center;
       }
 
-
       border-radius: 18px;
       -webkit-border-radius: 18px;
       -moz-border-radius: 18px;
@@ -153,7 +152,7 @@ body {
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
     -o-border-radius: 30px;
-}
+  }
 
   #creditsSection {
     #hearts {
@@ -166,13 +165,136 @@ body {
     }
 
     #koreanCredits {
-        display: none;
+      display: none;
     }
   }
 
   #photoSetsSection {
+    .bottomSec {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      align-items: center !important;
+      justify-items: center !important;
+      gap: 1rem !important;
+
+      margin-bottom: 15px;
+
+      width: 100%;
+      height: 280px; /* Fixed height */
+      overflow-y: auto; /* Enable vertical scrolling */
+
+      .outer_wrapper {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border: 3px solid white;
+        position: relative;
+
+        &.selected {
+          border-color: rgb(255, 255, 255);
+
+          &::after {
+            content: "⭐";
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 20px;
+            color: gold;
+          }
+
+          .inner_wrapper {
+            img {
+              filter: blur(0px) !important;
+              -webkit-filter: blur(0px) !important;
+            }
+          }
+
+          transform: rotate(-5deg);
+          -webkit-transform: rotate(-5deg);
+          -moz-transform: rotate(-5deg);
+          -ms-transform: rotate(-5deg);
+          -o-transform: rotate(-5deg);
+        }
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+          transform: translateY(-5px);
+        }
+
+        .inner_wrapper {
+          display: flex;
+          justify-content: center; /* Horizontally center the content */
+          align-items: center;
+          overflow: hidden;
+          img {
+            margin-top: -20px;
+            max-width: 100%; /* Ensure the image doesn't exceed the width of its container */
+            max-height: 100%;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            filter: blur(0.55px);
+            -webkit-filter: blur(0.55px);
+
+            &:hover {
+              filter: blur(0px);
+              -webkit-filter: blur(0px);
+            }
+          }
+          border-radius: 10px;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          -ms-border-radius: 10px;
+          -o-border-radius: 10px;
+        }
+        transition: 250ms;
+        -webkit-transition: 250ms;
+        -moz-transition: 250ms;
+        -ms-transition: 250ms;
+        -o-transition: 250ms;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+      }
+    }
+
+    #photoSetControls {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      div {
+        background-color: rgba(255, 255, 255, 0.726);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.35);
+          background-color: white;
+          cursor: pointer;
+        }
+
+        transition: 250ms;
+        -webkit-transition: 250ms;
+        -moz-transition: 250ms;
+        -ms-transition: 250ms;
+        -o-transition: 250ms;
+        padding: 2px 0;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+      }
+    }
     #korH1 {
-        display: none;
+      display: none;
     }
   }
 
