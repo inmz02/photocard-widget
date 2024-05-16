@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #545454;
+  font-family: "IBM Plex Sans KR", sans-serif;
+  height: 100dvh;
+  width: 100%;
+}
+body .outerwrapper {
+  height: 100%;
+  width: 100%;
+  border-top: 40px solid #edc6ff;
+  border-bottom: 40px solid #edc6ff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+body .outerwrapper .musicBox {
+  padding: 11px 10px;
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #edc6ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
+body .outerwrapper .musicBox:hover {
+  background-color: #b37ccd;
+  cursor: pointer;
+}
+body .outerwrapper .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .outerwrapper .title img {
+  margin-top: 10px;
+}
+body .outerwrapper .title p {
+  font-weight: bold;
+  font-size: smaller;
+}/*# sourceMappingURL=install.css.map */
