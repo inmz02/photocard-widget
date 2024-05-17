@@ -30,6 +30,7 @@ body .outerwrapper .topGraphic {
   left: 3rem;
   position: absolute;
   width: 7rem;
+  z-index: -100000;
 }
 body .outerwrapper .musicBox {
   padding: 11px 10px;
@@ -77,9 +78,6 @@ body .outerwrapper .mainouterwrapper {
   justify-content: center;
   flex-grow: 1;
   padding: 25px 0 40px 0;
-}
-body .outerwrapper .mainouterwrapper img {
-  width: 20px;
 }
 body .outerwrapper .mainouterwrapper .maininnerwrapper {
   display: grid;
@@ -279,4 +277,96 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer .btns
 }
 body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer .btns:hover + p, body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer .btns:focus + p {
   border-bottom: 3px dotted #b37ccd;
+}
+
+@media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+  body .outerwrapper {
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+    border-top: 30px solid #edc6ff !important;
+    border-bottom: 30px solid #edc6ff !important;
+  }
+  body .outerwrapper .topGraphic {
+    top: -7rem;
+    left: 2rem;
+    width: 5rem;
+  }
+  body .outerwrapper .musicBox {
+    top: -15px;
+    padding: 10px;
+    width: 35px;
+  }
+  body .outerwrapper .title1 img {
+    margin-top: 50px;
+    width: 100%;
+    padding: 20px;
+  }
+  body .outerwrapper .innerwrapper {
+    width: 100%;
+  }
+  body .mainouterwrapper {
+    padding: 50px 0 0 0 !important;
+  }
+  body .maininnerwrapper {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    height: 100%;
+    gap: 0 !important;
+  }
+  body .maininnerwrapper .container1 {
+    width: 100%;
+  }
+  body .maininnerwrapper .container1 .mainimage {
+    width: 80% !important;
+    height: 80% !important;
+  }
+  body .maininnerwrapper .container1 .rowofimages {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    max-width: 100%;
+  }
+  body .maininnerwrapper .container1 .rowofimages div {
+    width: 5rem !important;
+    height: 5rem !important;
+    overflow: hidden;
+    border: 2px solid #e2b3f8;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  body .maininnerwrapper .container1 .rowofimages div.selected {
+    box-shadow: 0 5px 2px rgba(220, 144, 223, 0.4392156863);
+  }
+  body .maininnerwrapper .container1 .rowofimages div img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  body .maininnerwrapper .container2 {
+    overflow-y: hidden !important;
+    padding: 0 20px;
+    margin-top: 35px;
+  }
+}
+@media (max-width: 640px) and (min-width: 641px) {
+  body {
+    background-color: rgb(193, 192, 255);
+  }
+}
+@media (max-width: 640px) and (min-width: 1024px) {
+  body {
+    background-color: rgb(192, 255, 239);
+  }
+}
+@media (max-width: 640px) and (min-width: 1280px) {
+  body {
+    background-color: rgb(254, 255, 192);
+  }
 }/*# sourceMappingURL=install.css.map */
