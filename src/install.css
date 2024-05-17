@@ -332,22 +332,6 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer .btns
   body .maininnerwrapper .container1 .rowofimages div {
     width: 5rem !important;
     height: 5rem !important;
-    overflow: hidden;
-    border: 2px solid #e2b3f8;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-  }
-  body .maininnerwrapper .container1 .rowofimages div.selected {
-    box-shadow: 0 5px 2px rgba(220, 144, 223, 0.4392156863);
-  }
-  body .maininnerwrapper .container1 .rowofimages div img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
   body .maininnerwrapper .container2 {
     overflow-y: hidden !important;
@@ -355,18 +339,52 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer .btns
     margin-top: 35px;
   }
 }
-@media (max-width: 640px) and (min-width: 641px) {
-  body {
-    background-color: rgb(193, 192, 255);
+@media (min-width: 641px) and (max-width: 940px) {
+  body .outerwrapper {
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+    border-top: 30px solid #edc6ff !important;
+    border-bottom: 30px solid #edc6ff !important;
+  }
+  body .title1 img {
+    margin-top: 50px;
+    width: 100%;
+    padding: 20px;
+  }
+  body .musicBox {
+    top: -15px !important;
+  }
+  body .maininnerwrapper {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    height: 100%;
+    gap: 0 !important;
+  }
+  body .container2 {
+    overflow-y: hidden !important;
+    padding: 0 20px;
+    margin-top: 55px;
+  }
+  body .container2 .footer p {
+    margin-bottom: 0 !important;
   }
 }
-@media (max-width: 640px) and (min-width: 1024px) {
-  body {
-    background-color: rgb(192, 255, 239);
+@media (min-width: 941px) and (max-width: 1100px) {
+  body .outerwrapper {
+    border-top: 30px solid #edc6ff !important;
+    border-bottom: 30px solid #edc6ff !important;
   }
-}
-@media (max-width: 640px) and (min-width: 1280px) {
-  body {
-    background-color: rgb(254, 255, 192);
+  body .mainouterwrapper {
+    width: 100%;
+  }
+  body .maininnerwrapper {
+    width: 100% !important;
+    padding-left: 20px;
+    padding-right: 25px;
+  }
+  body .topGraphic {
+    top: -7rem !important;
+    left: 2rem !important;
+    width: 6rem !important;
   }
 }/*# sourceMappingURL=install.css.map */
