@@ -8,11 +8,13 @@ const rowOfImages = document.querySelectorAll(".rowofimages div img");
 const mainimage = document.querySelector(".mainimage img");
 const prevButton = document.querySelector(".leftBtn");
 const nextButton = document.querySelector(".rightBtn");
-let currentImageIndex = 1;
+const smallBtn = document.querySelector("#installBtnSmall");
+const bigBtn = document.querySelector("#installBtnBig");
 
 // >> 💡 Initializations
 let isPlaying = false;
 audio.volume = 0.3;
+let currentImageIndex = 1;
 
 // >> 🧁 Functions
 function loopAudio() {
@@ -24,6 +26,15 @@ function changeBackgroundImage() {
   document.querySelector(
     ".mainimage"
   ).style.backgroundImage = `url('src/install/${currentImageIndex}.png')`;
+}
+
+function copyLink(size) {
+  let link =
+    size === 0
+      ? "https://plave-pc-widget.netlify.app/?v=1&s=s"
+      : "https://plave-pc-widget.netlify.app/?v=1&s=b";
+
+  navigator.clipboard.writeText(link);
 }
 
 // >> 🐼 Event Listeners
@@ -90,3 +101,6 @@ nextButton.addEventListener("click", () => {
   }
   changeBackgroundImage();
 });
+
+smallBtn.addEventListener("click", copyLink(0));
+bigBtn.addEventListener("click", copyLink(1));
