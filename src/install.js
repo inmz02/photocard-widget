@@ -6,6 +6,9 @@ const containsTitles = document.querySelectorAll(
 );
 const rowOfImages = document.querySelectorAll(".rowofimages div img");
 const mainimage = document.querySelector(".mainimage img");
+const prevButton = document.querySelector(".leftBtn");
+const nextButton = document.querySelector(".rightBtn");
+let currentImageIndex = 1;
 
 // >> 💡 Initializations
 let isPlaying = false;
@@ -15,6 +18,12 @@ audio.volume = 0.3;
 function loopAudio() {
   audio.currentTime = 0;
   audio.play();
+}
+
+function changeBackgroundImage() {
+  document.querySelector(
+    ".mainimage"
+  ).style.backgroundImage = `url('src/install/${currentImageIndex}.png')`;
 }
 
 // >> 🐼 Event Listeners
@@ -63,4 +72,21 @@ rowOfImages.forEach(function (selectedImage) {
     parentElement.classList.add("selected");
     mainimage.setAttribute("src", imageURL);
   });
+});
+
+// 🖼️ Image Sorting
+prevButton.addEventListener("click", () => {
+  currentImageIndex--;
+  if (currentImageIndex < 1) {
+    currentImageIndex = 6;
+  }
+  changeBackgroundImage();
+});
+
+nextButton.addEventListener("click", () => {
+  currentImageIndex++;
+  if (currentImageIndex > 6) {
+    currentImageIndex = 1;
+  }
+  changeBackgroundImage();
 });

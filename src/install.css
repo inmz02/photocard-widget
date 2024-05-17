@@ -100,38 +100,43 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .mainimage {
   height: 30rem;
   border: 5px solid #e2b3f8;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-image: url("../src/install/1.png");
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .mainimage img {
+body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .mainimage #mainControls {
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .rowofimages {
   display: flex;
-  gap: 1rem;
-  max-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
-body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .rowofimages div {
-  width: 4rem;
-  height: 4rem;
-  overflow: hidden;
-  border: 2px solid #e2b3f8;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .mainimage #mainControls div {
+  background-color: rgba(226, 179, 248, 0.5490196078);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
 }
-body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .rowofimages div.selected {
-  box-shadow: 0 5px 2px rgba(220, 144, 223, 0.4392156863);
+body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .mainimage #mainControls div:hover {
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.35);
+  background-color: white;
 }
-body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .rowofimages div img {
+body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 .mainimage img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -323,16 +328,6 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer .btns
     width: 80% !important;
     height: 80% !important;
   }
-  body .maininnerwrapper .container1 .rowofimages {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    max-width: 100%;
-  }
-  body .maininnerwrapper .container1 .rowofimages div {
-    width: 5rem !important;
-    height: 5rem !important;
-  }
   body .maininnerwrapper .container2 {
     overflow-y: hidden !important;
     padding: 0 20px;
@@ -386,5 +381,8 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer .btns
     top: -7rem !important;
     left: 2rem !important;
     width: 6rem !important;
+  }
+  body .btns {
+    flex-direction: column;
   }
 }/*# sourceMappingURL=install.css.map */

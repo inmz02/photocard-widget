@@ -120,6 +120,42 @@ body {
             height: 30rem;
             border: 5px solid $taddarkerpurple;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-size: cover;
+            background-image: url("../src/install/1.png");
+
+            #mainControls {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 1rem;
+              div {
+                background-color: #e2b3f88c;
+                width: 30px;
+                height: 30px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+
+                &:hover {
+                  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.35);
+                  background-color: white;
+                }
+
+                border-radius: 100%;
+                -webkit-border-radius: 100%;
+                -moz-border-radius: 100%;
+                -ms-border-radius: 100%;
+                -o-border-radius: 100%;
+              }
+            }
 
             img {
               width: 100%;
@@ -131,34 +167,6 @@ body {
             -moz-border-radius: 20px;
             -ms-border-radius: 20px;
             -o-border-radius: 20px;
-          }
-
-          .rowofimages {
-            display: flex;
-            gap: 1rem;
-            max-width: 100%;
-
-            div {
-              width: 4rem;
-              height: 4rem;
-              overflow: hidden;
-              border: 2px solid $taddarkerpurple;
-
-              &.selected {
-                box-shadow: 0 5px 2px #dc90df70;
-              }
-
-              img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-              }
-              border-radius: 10px;
-              -webkit-border-radius: 10px;
-              -moz-border-radius: 10px;
-              -ms-border-radius: 10px;
-              -o-border-radius: 10px;
-            }
           }
         }
 
@@ -387,18 +395,6 @@ body {
           width: 80% !important;
           height: 80% !important;
         }
-
-        .rowofimages {
-          display: grid !important;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 1rem;
-          max-width: 100%;
-
-          div {
-            width: 5rem !important;
-            height: 5rem !important;
-          }
-        }
       }
 
       .container2 {
@@ -473,6 +469,10 @@ body {
       top: -7rem !important;
       left: 2rem !important;
       width: 6rem !important;
+    }
+
+    .btns {
+      flex-direction: column;
     }
   }
 }
