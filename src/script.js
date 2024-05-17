@@ -28,6 +28,7 @@ let currentImageIndex = 1;
 let mode = langBtn.dataset.lang;
 let currentSet = cardContainer.dataset.currentset;
 let setName = "";
+let size = "";
 
 // 🧁 Functions
 function showMenuAndPhotoControls() {
@@ -53,9 +54,11 @@ function hideOpenedMenu() {
 function saveChosenSetAndIndex() {
   const params = new URLSearchParams(window.location.search);
   const vParam = params.get("v");
+  const sParam = params.get("s");
+
   if (vParam) {
     const key = `pc${vParam}`;
-    const data = [chosenSet, currentImageIndex];
+    const data = [chosenSet, currentImageIndex, sParam];
     localStorage.setItem(key, JSON.stringify(data));
   }
 }
@@ -70,7 +73,8 @@ function getChosenSetAndIndex() {
       let parseData = JSON.parse(data);
       chosenSet = parseInt(parseData[0]);
       currentImageIndex = parseInt(parseData[1]);
-      return [chosenSet, currentImageIndex];
+      size = parseData[2]; // Add this line to retrieve the size parameter
+      return [chosenSet, currentImageIndex, size];
     }
   }
   return null;
@@ -245,10 +249,21 @@ photosContainers.forEach(function (container) {
 //   event.preventDefault();
 // });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const sParam = new URLSearchParams(window.location.search).get("s");
+  if (sParam === "s") {
+    document.querySelector("body").classList.add("smallVerison");
+  } else {
+    if (document.querySelector("body").classList.contains("smallVerison")) {
+    }
+    document.querySelector("body").classList.remove("smallVerison");
+  }
+});
+
 // 💡 Initialization v2
 const storedData = getChosenSetAndIndex();
 
-if (storedData && storedData[0] && storedData[1]) {
+if (storedData && storedData[0] && storedData[1] && storedData[2]) {
   chosenSet = storedData[0];
   currentSet = `${chosenSet}`;
   currentImageIndex = storedData[1];
@@ -258,6 +273,13 @@ if (storedData && storedData[0] && storedData[1]) {
   );
   cardContainer.dataset.currentset = chosenSet;
   selectedContainer.classList.add("selected");
+  if (storedData[2] === "s") {
+    document.querySelector("body").classList.add("smallVerison");
+  } else {
+    if (document.querySelector("body").classList.contains("smallVerison")) {
+    }
+    document.querySelector("body").classList.remove("smallVerison");
+  }
 } else {
   // If no data is stored, set default values and select the first set
   chosenSet = 1;
@@ -290,5 +312,4 @@ nextButton.addEventListener("click", () => {
 
 setTimeout(() => {
   mode = langBtn.dataset.lang;
-  // cardContainer.dataset.currentset = `${chosenSet}`;
 }, 1000);
