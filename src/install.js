@@ -41,11 +41,11 @@ containsTitles.forEach(function (title) {
     // Update the icon class based on the state of middleCon
     let icon = title.querySelector("i");
     if (middleCon.classList.contains("hide")) {
-      icon.classList.remove("fa-caret-down");
-      icon.classList.add("fa-caret-up");
-    } else {
       icon.classList.remove("fa-caret-up");
       icon.classList.add("fa-caret-down");
+    } else {
+      icon.classList.remove("fa-caret-down");
+      icon.classList.add("fa-caret-up");
     }
   });
 });

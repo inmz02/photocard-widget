@@ -94,7 +94,7 @@ body {
       display: flex;
       justify-content: center;
       flex-grow: 1;
-      padding: 40px 0;
+      padding: 25px 0 40px 0;
 
       img {
         width: 20px;
@@ -192,7 +192,7 @@ body {
           }
 
           .title {
-            margin-top: 20px;
+            margin-top: 10px;
             h1 {
               margin-bottom: 1rem;
             }
@@ -282,9 +282,9 @@ body {
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            width: 100%;
             button {
-              width: 96%;
-              padding: 0.6rem 0;
+              width: 100%;
               text-align: center;
               font-size: 1.5rem;
               margin: 0 5px;
@@ -293,30 +293,42 @@ body {
               font-weight: bold;
               border: none;
               background: radial-gradient(circle, #f2dafd 0%, #d392f1 100%);
-              // border: 3px dotted #b37ccd;
+              border: 3px solid transparent;
 
               &:hover,
               &:focus {
                 background: radial-gradient(circle, #f3e3fa 0%, #c96bf5 100%);
               }
-              border-radius: 20px;
-              -webkit-border-radius: 20px;
-              -moz-border-radius: 20px;
-              -ms-border-radius: 20px;
-              -o-border-radius: 20px;
+
+              &:active {
+                border: 3px solid rgb(107, 228, 117);
+              }
+
+              border-radius: 10px;
+              -webkit-border-radius: 10px;
+              -moz-border-radius: 10px;
+              -ms-border-radius: 10px;
+              -o-border-radius: 10px;
             }
             p {
               margin-bottom: 30px;
               width: fit-content;
-              margin-top: 10px;
+              margin-top: 20px;
               text-align: center;
               font-size: small;
               border-bottom: 3px dotted transparent;
             }
 
-            button:hover + p,
-            button:focus + p {
-              border-bottom: 3px dotted $darkpurple;
+            .btns {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+
+              &:hover + p,
+              &:focus + p {
+                border-bottom: 3px dotted $darkpurple;
+              }
             }
           }
         }
