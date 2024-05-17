@@ -84,7 +84,7 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper {
   align-items: center;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  width: 75%;
+  width: 100%;
   height: 100%;
 }
 body .outerwrapper .mainouterwrapper .maininnerwrapper .container1 {
@@ -325,8 +325,8 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer .btns
     width: 100%;
   }
   body .maininnerwrapper .container1 .mainimage {
-    width: 80% !important;
-    height: 80% !important;
+    width: 23rem !important;
+    height: 23rem !important;
   }
   body .maininnerwrapper .container2 {
     overflow-y: hidden !important;
@@ -384,5 +384,39 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer .btns
   }
   body .btns {
     flex-direction: column;
+  }
+}
+@media (min-width: 1280px) {
+  .container1 {
+    justify-content: center !important;
+    align-items: end !important;
+  }
+  .container1 .mainimage {
+    width: 27rem !important;
+    height: 27rem !important;
+  }
+  .container2 {
+    height: 100% !important;
+    width: 70% !important;
+  }
+  .container2 .maininnerwrapper {
+    gap: 4rem !important;
+  }
+}
+@media (min-width: 1400px) {
+  .container1 {
+    justify-content: center !important;
+    align-items: end !important;
+  }
+  .container1 .mainimage {
+    width: 30rem !important;
+    height: 30rem !important;
+  }
+  .container2 {
+    height: 100% !important;
+    width: 70% !important;
+  }
+  .container2 .maininnerwrapper {
+    gap: 4rem !important;
   }
 }/*# sourceMappingURL=install.css.map */
