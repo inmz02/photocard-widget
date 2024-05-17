@@ -51,15 +51,29 @@ function hideOpenedMenu() {
 }
 
 function saveChosenSetAndIndex() {
-  localStorage.setItem("chosenSet", chosenSet);
-  localStorage.setItem("currentImageIndex", currentImageIndex);
+  const params = new URLSearchParams(window.location.search);
+  const vParam = params.get("v");
+  if (vParam) {
+    const key = `pc${vParam}`;
+    const data = [chosenSet, currentImageIndex];
+    localStorage.setItem(key, JSON.stringify(data));
+  }
 }
 
 function getChosenSetAndIndex() {
-  return {
-    chosenSet: parseInt(localStorage.getItem("chosenSet")),
-    currentImageIndex: parseInt(localStorage.getItem("currentImageIndex")),
-  };
+  const params = new URLSearchParams(window.location.search);
+  const vParam = params.get("v");
+  if (vParam) {
+    const key = `pc${vParam}`;
+    const data = localStorage.getItem(key);
+    if (data) {
+      let parseData = JSON.parse(data);
+      chosenSet = parseInt(parseData[0]);
+      currentImageIndex = parseInt(parseData[1]);
+      return [chosenSet, currentImageIndex];
+    }
+  }
+  return null;
 }
 
 function changeBackgroundImage() {
@@ -185,7 +199,7 @@ langBtn.addEventListener("click", function () {
 
   let koreanInfo = infoSection.querySelector("#koreanInfo");
   let engInfo = infoSection.querySelector("#engInfo");
-  
+
   let korH1 = photoSetsSection.querySelector("#korH1");
   let engH1 = photoSetsSection.querySelector("#engH1");
 
@@ -227,17 +241,17 @@ photosContainers.forEach(function (container) {
   });
 });
 
-document.addEventListener("contextmenu", function (event) {
-  event.preventDefault();
-});
+// document.addEventListener("contextmenu", function (event) {
+//   event.preventDefault();
+// });
 
 // 💡 Initialization v2
 const storedData = getChosenSetAndIndex();
 
-if (storedData.chosenSet && storedData.currentImageIndex) {
-  chosenSet = storedData.chosenSet;
+if (storedData && storedData[0] && storedData[1]) {
+  chosenSet = storedData[0];
   currentSet = `${chosenSet}`;
-  currentImageIndex = storedData.currentImageIndex;
+  currentImageIndex = storedData[1];
   changeBackgroundImage();
   const selectedContainer = document.querySelector(
     `[data-setname="set${chosenSet}"]`

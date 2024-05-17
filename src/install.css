@@ -25,6 +25,12 @@ body .outerwrapper {
   justify-content: center;
   position: relative;
 }
+body .outerwrapper .topGraphic {
+  top: -5rem;
+  left: 3rem;
+  position: absolute;
+  width: 7rem;
+}
 body .outerwrapper .musicBox {
   padding: 11px 10px;
   width: 40px;
@@ -153,9 +159,8 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2::-webkit-scro
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
-body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .title .subtitle {
-  text-transform: uppercase;
-  margin-bottom: 1rem;
+body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .title {
+  margin-top: 20px;
 }
 body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .title h1 {
   margin-bottom: 1rem;
@@ -223,6 +228,12 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .main .moreIn
 body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .main .moreInfoSections .contain .middle p {
   line-height: 1.7rem;
 }
+body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer button {
   width: 96%;
   padding: 0.6rem 0;
@@ -245,7 +256,14 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer butto
 }
 body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer p {
   margin-bottom: 30px;
+  width: -moz-fit-content;
+  width: fit-content;
   margin-top: 10px;
   text-align: center;
   font-size: small;
+  border-bottom: 3px dotted transparent;
+}
+body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer button:hover + p,
+body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .footer button:focus + p {
+  border-bottom: 3px dotted #b37ccd;
 }/*# sourceMappingURL=install.css.map */

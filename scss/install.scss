@@ -35,6 +35,13 @@ body {
 
     position: relative;
 
+    .topGraphic {
+      top: -5rem;
+      left: 3rem;
+      position: absolute;
+      width: 7rem;
+    }
+
     .musicBox {
       padding: 11px 10px;
       width: 40px;
@@ -156,7 +163,7 @@ body {
               -moz-border-radius: 10px;
               -ms-border-radius: 10px;
               -o-border-radius: 10px;
-}
+            }
           }
         }
 
@@ -185,10 +192,7 @@ body {
           }
 
           .title {
-            .subtitle {
-              text-transform: uppercase;
-              margin-bottom: 1rem;
-            }
+            margin-top: 20px;
             h1 {
               margin-bottom: 1rem;
             }
@@ -274,6 +278,10 @@ body {
           }
 
           .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             button {
               width: 96%;
               padding: 0.6rem 0;
@@ -299,9 +307,16 @@ body {
             }
             p {
               margin-bottom: 30px;
+              width: fit-content;
               margin-top: 10px;
               text-align: center;
               font-size: small;
+              border-bottom: 3px dotted transparent;
+            }
+
+            button:hover + p,
+            button:focus + p {
+              border-bottom: 3px dotted $darkpurple;
             }
           }
         }
