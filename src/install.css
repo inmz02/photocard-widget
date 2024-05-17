@@ -180,6 +180,10 @@ body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .main .mainte
   margin-bottom: 20px;
   line-height: 1.7rem;
 }
+body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .main .maintext ul {
+  margin-left: 50px;
+  margin-bottom: 25px;
+}
 body .outerwrapper .mainouterwrapper .maininnerwrapper .container2 .main a {
   text-decoration: none;
   font-weight: bold;
